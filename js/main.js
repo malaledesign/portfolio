@@ -232,26 +232,26 @@ function initProjectCards() {
             ]
         },
         'space-4': {
-            title: 'Corner 3D – Modelo para Kitchen Center',
-            titleEn: 'Corner 3D – Kitchen Center Model',
+            title: 'Corner 3D – Modelo para FDV',
+            titleEn: 'Corner 3D – Model for FDV',
             category: 'Visualización 3D',
             categoryEn: '3D Visualization',
-            description: 'Para este proyecto desarrollé una visualización 3D de una esquina de cocina para Kitchen Center, con el objetivo de mostrar la correcta integración de electrodomésticos como refrigeradores, microondas y hornos dentro de un espacio realista. La propuesta buscó contextualizar los productos en un entorno funcional y estético, permitiendo a los clientes comprender dimensiones, proporciones y combinaciones posibles antes de tomar una decisión de compra.',
-            descriptionEn: 'For this project I developed a 3D visualization of a kitchen corner for Kitchen Center, with the goal of showcasing the correct integration of appliances such as refrigerators, microwaves, and ovens within a realistic space. The proposal sought to contextualize the products in a functional and aesthetic environment, allowing customers to understand dimensions, proportions, and possible combinations before making a purchase decision.',
+            description: 'Para este proyecto desarrollé una visualización 3D de una esquina de cocina para FDV, con el objetivo de mostrar la correcta integración de electrodomésticos como refrigeradores, microondas y hornos dentro de un espacio realista. La propuesta buscó contextualizar los productos en un entorno funcional y estético, permitiendo a los clientes comprender dimensiones, proporciones y combinaciones posibles antes de tomar una decisión de compra.',
+            descriptionEn: 'For this project I developed a 3D visualization of a kitchen corner for FDV, with the goal of showcasing the correct integration of appliances such as refrigerators, microwaves, and ovens within a realistic space. The proposal sought to contextualize the products in a functional and aesthetic environment, allowing customers to understand dimensions, proportions, and possible combinations before making a purchase decision.',
             images: [
-                'img/projects/kitchen center/KC.jpg'
+                'img/projects/kitchen center/mini.png'
             ],
             details: [
-                { label: 'Cliente', labelEn: 'Client', value: 'Kitchen Center', valueEn: 'Kitchen Center' },
+                { label: 'Cliente', labelEn: 'Client', value: 'FDV', valueEn: 'FDV' },
                 { label: 'Año', labelEn: 'Year', value: '2025', valueEn: '2025' },
                 { label: 'Herramienta', labelEn: 'Tool', value: 'Blender', valueEn: 'Blender' }
             ]
         },
 
         'object-1': {
-            title: 'Colección Esencial',
+            title: 'CAND-L',
             category: 'Diseño de Producto',
-            description: 'Una colección de objetos cotidianos reimaginados a través del lente del diseño Japandi. Cada pieza ha sido cuidadosamente pensada para eliminar lo superfluo y resaltar la esencia de su función, resultando en objetos que son tanto herramientas como obras de arte.',
+            description: 'El proyecto explora la iluminación como un acto ritual y funcional. Inspirada en la figura del cirio, la lámpara integra un sistema de regulación manual donde el desplazamiento del acrílico permite ajustar la intensidad lumínica. El diseño prioriza la honestidad de los materiales y la interacción directa del usuario con el objeto para transformar la atmósfera del entorno.',
             images: [
             'img/projects/CandL/candl1.jpg',
               'img/projects/CandL/candl2.jpg'

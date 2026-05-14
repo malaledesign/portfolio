@@ -16,23 +16,27 @@
    HERO — Full-height split
    =================================== */
 .about-hero {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 55% 45%;
-    overflow: hidden;
+    grid-template-columns: 48% 52%;
 }
 
 .about-hero-photo {
-    position: relative;
-    overflow: hidden;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 3rem 4rem 4rem;
 }
 
 .about-hero-photo img {
-    width: 100%;
-    height: 100%;
+    display: block;
+    max-height: 70vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     object-fit: cover;
     object-position: center top;
-    display: block;
 }
 
 .about-hero-content {
@@ -427,7 +431,11 @@
    =================================== */
 @media (max-width: 1024px) {
     .about-hero {
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-hero-photo {
+        padding: 7rem 2.5rem 3.5rem 3rem;
     }
 
     .about-hero-content {
@@ -449,15 +457,18 @@
 
 @media (max-width: 768px) {
     .about-hero {
-        height: auto;
         grid-template-columns: 1fr;
-        min-height: 100vh;
+        min-height: auto;
     }
 
     .about-hero-photo {
-        height: 55vw;
-        min-height: 280px;
-        max-height: 420px;
+        padding: 6rem 2rem 2rem;
+        min-height: 60vw;
+    }
+
+    .about-hero-photo img {
+        max-height: 55vw;
+        width: 100%;
     }
 
     .about-hero-content {
