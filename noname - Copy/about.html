@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí • Malale Design Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body data-mode="spaces" lang="es">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-text">Malale</span>
+                    <span class="logo-subtitle">Design Studio</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html#portfolio" class="nav-link" data-en="Portfolio" data-es="Portfolio">Portfolio</a></li>
+                    <li><a href="gallery.html" class="nav-link" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                    <li><a href="about.html" class="nav-link nav-link--active" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="nav-social">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@malale.com" class="social-link" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                        <span class="lang-separator">/</span>
+                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="about-hero">
+        <div class="about-hero-photo">
+            <img src="img/projects/ale/ale.png" alt="María Alejandra Silva">
+        </div>
+        <div class="about-hero-content">
+            <p class="about-eyebrow" data-en="Designer of Spaces & Objects" data-es="Diseñadora de Espacios & Objetos">Diseñadora de Espacios & Objetos</p>
+            <h1 class="about-name">
+                <span>María</span>
+                <span>Alejandra</span>
+                <span>Silva</span>
+            </h1>
+            <div class="about-name-rule"></div>
+            <p class="about-descriptor" data-en="Japandi aesthetic · Interior design · 3D visualization" data-es="Estética Japandi · Diseño de interiores · Visualización 3D">
+                Estética Japandi · Diseño de interiores · Visualización 3D
+            </p>
+            <p class="about-location">Santiago, Chile</p>
+            <div class="about-scroll-cue">
+                <span>Scroll</span>
+                <div class="about-scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MANIFESTO ── -->
+    <section class="about-manifesto">
+        <div class="container">
+            <blockquote class="manifesto-quote"
+                data-en="Every space tells a story. Every object holds an intention."
+                data-es="Cada espacio cuenta una historia. Cada objeto guarda una intención.">
+                Cada espacio cuenta una historia.<br>Cada objeto guarda una intención.
+            </blockquote>
+        </div>
+    </section>
+
+  <!-- ── COLLABORATIONS ── -->
+    <section class="about-collabs">
+        <div class="container">
+            <h3 class="collabs-title" data-en="Collaborations" data-es="Colaboraciones">Colaboraciones</h3>
+            <div class="collabs-grid">
+                <div class="collab-logo">
+                    <img src="img/projects/logos/area.png" alt="Área">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/wolf.png" alt="Wolf">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/florense.png" alt="Florense">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/kitchen.png" alt="Kitchen Center">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/meier.png" alt="Meier">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/logo_FDV.png" alt="FDV">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/limit.png" alt="Limit">
+                </div>
+                <div class="collab-logo">
+                    <img src="img/projects/logos/udd.png" alt="UDD">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DISCIPLINES ── -->
+    <section class="about-disciplines">
+        <div class="container">
+            <div class="disciplines-track">
+                <span class="discipline-item" data-en="Interior Design" data-es="Diseño de Interiores">Diseño de Interiores</span>
+                <span class="discipline-dot"></span>
+                <span class="discipline-item" data-en="3D Visualization" data-es="Visualización 3D">Visualización 3D</span>
+                <span class="discipline-dot"></span>
+                <span class="discipline-item" data-en="Japandi Aesthetic" data-es="Estética Japandi">Estética Japandi</span>
+                <span class="discipline-dot"></span>
+                <span class="discipline-item" data-en="Product Design" data-es="Diseño de Producto">Diseño de Producto</span>
+                <span class="discipline-dot"></span>
+                <span class="discipline-item" data-en="Blender · SketchUp" data-es="Blender · SketchUp">Blender · SketchUp</span>
+            </div>
+        </div>
+    </section>
+
+        <!-- ── STATS ── -->
+    <section class="about-stats-section">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="stat-big">6+</span>
+                    <span class="stat-desc" data-en="Years of experience" data-es="Años de experiencia">Años de experiencia</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-big">+20</span>
+                    <span class="stat-desc" data-en="Completed projects" data-es="Proyectos completados">Proyectos completados</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-big">5000</span>
+                    <span class="stat-desc" data-en="Hours in 3D software" data-es="Horas en software 3D">Horas en software 3D</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BIO ── -->
+    <section class="about-bio">
+        <div class="container">
+            <div class="bio-grid">
+                <div class="bio-col-left">
+                    <p class="bio-label" data-en="About Me" data-es="Sobre Mí">Sobre Mí</p>
+                    <h2 class="bio-heading" data-en="Designing with intention" data-es="Diseñar con intención">Diseñar con<br>intención</h2>
+                </div>
+                <div class="bio-col-right">
+                    <div class="bio-text">
+                        <p data-en="I am an interior designer and 3D visualization artist based in Santiago, Chile, with a deep belief that the spaces and objects that surround us shape how we feel, think, and live. My practice is rooted in the Japandi aesthetic — a philosophy that finds beauty in restraint, meaning in materiality, and warmth in simplicity."
+                           data-es="Soy diseñadora de interiores y artista de visualización 3D basada en Santiago, Chile, con la convicción de que los espacios y objetos que nos rodean moldean cómo nos sentimos, pensamos y vivimos. Mi práctica está enraizada en la estética Japandi — una filosofía que encuentra belleza en la contención, significado en la materialidad y calidez en la simplicidad.">
+                            Soy diseñadora de interiores y artista de visualización 3D basada en Santiago, Chile, con la convicción de que los espacios y objetos que nos rodean moldean cómo nos sentimos, pensamos y vivimos. Mi práctica está enraizada en la estética Japandi — una filosofía que encuentra belleza en la contención, significado en la materialidad y calidez en la simplicidad.
+                        </p>
+                        <p data-en="With over 6 years of experience in spatial design and collaborations with studios and brands such as Wolf, Florense, Kitchen Center and Meier, I have developed a multidisciplinary approach that integrates architecture, furniture design, and digital visualization. I am also self-taught in Blender, a tool that has allowed me to bring ideas to life before a single physical element is built."
+                           data-es="Con más de 6 años de experiencia en diseño de espacios y colaboraciones con estudios y marcas como Wolf, Florense, Kitchen Center y Meier, he desarrollado una mirada multidisciplinar que integra arquitectura, mobiliario y visualización digital. Además, soy autodidacta en Blender, herramienta que me ha permitido dar vida a ideas antes de que exista un solo elemento físico.">
+                            Con más de 6 años de experiencia en diseño de espacios y colaboraciones con estudios y marcas como Wolf, Florense, Kitchen Center y Meier, he desarrollado una mirada multidisciplinar que integra arquitectura, mobiliario y visualización digital. Además, soy autodidacta en Blender, herramienta que me ha permitido dar vida a ideas antes de que exista un solo elemento físico.
+                        </p>
+                        <p data-en="Each project is an opportunity to listen carefully — to the space, to the client, to the light that enters through a window — and to translate all of that into environments that feel inevitable, as if they couldn't have been designed any other way."
+                           data-es="Cada proyecto es una oportunidad de escuchar con atención — al espacio, al cliente, a la luz que entra por una ventana — y traducir todo eso en ambientes que se sienten inevitables, como si no pudieran haber sido diseñados de otra manera.">
+                            Cada proyecto es una oportunidad de escuchar con atención — al espacio, al cliente, a la luz que entra por una ventana — y traducir todo eso en ambientes que se sienten inevitables, como si no pudieran haber sido diseñados de otra manera.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+    <!-- ── CTA ── -->
+    <section class="about-cta">
+        <div class="container">
+            <p class="about-cta-label" data-en="Ready to work together?" data-es="¿Trabajamos juntos?">¿Trabajamos juntos?</p>
+            <h2 class="about-cta-title"
+                data-en="Let's transform your vision into reality"
+                data-es="Transformemos tu visión en realidad">
+                Transformemos tu visión<br>en realidad
+            </h2>
+            <div class="about-cta-actions">
+                <a href="index.html#contact" class="cta-button"
+                   data-en="Start a conversation"
+                   data-es="Iniciar una conversación">
+                    Iniciar una conversación
+                </a>
+                <a href="index.html#portfolio" class="about-cta-secondary"
+                   data-en="View portfolio"
+                   data-es="Ver portfolio">
+                    Ver portfolio
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Malale</h3>
+                    <p>Design Studio</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-en="Navigation" data-es="Navegación">Navegación</h4>
+                        <ul>
+                            <li><a href="index.html" data-en="Home" data-es="Inicio">Inicio</a></li>
+                            <li><a href="index.html#portfolio">Portfolio</a></li>
+                            <li><a href="gallery.html" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                            <li><a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                            <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Follow Me" data-es="Sígueme">Sígueme</h4>
+                        <ul>
+                            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:hello@malale.com">Email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Language" data-es="Idioma">Idioma</h4>
+                        <div class="language-switcher footer-lang">
+                            <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                            <span class="lang-separator">/</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-en="&copy; 2026 Malale • María Alejandra Silva. All rights reserved."
+                   data-es="&copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.">
+                    &copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Gallery • Malale Design Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-text">Malale</span>
+                    <span class="logo-subtitle">Design Studio</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html#portfolio" class="nav-link" data-en="Portfolio" data-es="Portfolio">Portfolio</a></li>
+                    <li><a href="gallery.html" class="nav-link active" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                    <li><a href="about.html" class="nav-link" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="nav-social">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@malale.com" class="social-link" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                        <span class="lang-separator">/</span>
+                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content">
+                <div class="hero-eyebrow"
+                     data-es="Visualizaciones 3D"
+                     data-en="3D Visualizations">Visualizaciones 3D</div>
+                <h1 class="gallery-title"
+                    data-es="Galería de Diseños"
+                    data-en="Design Gallery">Galería de Diseños</h1>
+                <p class="gallery-description"
+                   data-es="Una colección de visualizaciones arquitectónicas y de producto que exploran la intersección entre forma, función y emoción"
+                   data-en="A collection of architectural and product visualizations exploring the intersection between form, function and emotion">
+                    Una colección de visualizaciones arquitectónicas y de producto que exploran
+                    la intersección entre forma, función y emoción
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-filters">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all"
+                        data-es="Todos los Proyectos" data-en="All Projects">
+                    Todos los Proyectos
+                </button>
+                <button class="filter-tab" data-filter="ambient"
+                        data-es="Ambientes & Espacios" data-en="Ambient & Spaces">
+                    Ambientes & Espacios
+                </button>
+                <button class="filter-tab" data-filter="product"
+                        data-es="Productos & Objetos" data-en="Products & Objects">
+                    Productos & Objetos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g1">
+                    <img src="img/projects/3d gallery/Ambient & Room/g1/15.png" alt="Ambiente Serie 1" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">5 fotos</span>
+                    </div>
+                </div>
+
+                  <div class="gallery-item" data-category="product" data-group="product-g1">
+                    <img src="img/projects/3d gallery/Product & Objects/g1/1.png" alt="Producto Serie 1" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Producto</span>
+                        <span class="item-count">2 fotos</span>
+                    </div>
+                </div>
+
+                  <div class="gallery-item" data-category="ambient" data-group="ambient-g6">
+                    <img src="img/projects/3d gallery/Ambient & Room/g6/03.png" alt="Ambiente Serie 6" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">3 fotos</span>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g3">
+                    <img src="img/projects/3d gallery/Ambient & Room/g3/01 A.png" alt="Ambiente Serie 3" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">4 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g4">
+                    <img src="img/projects/3d gallery/Ambient & Room/g4/8.png" alt="Ambiente Serie 4" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">7 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g2">
+                    <img src="img/projects/3d gallery/Ambient & Room/g2/1.png" alt="Ambiente Serie 2" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">7 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g5">
+                    <img src="img/projects/3d gallery/Ambient & Room/g5/Japan room 03.png" alt="Japan Room" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">3 fotos</span>
+                    </div>
+                </div>
+
+              
+
+                <div class="gallery-item" data-category="ambient" data-group="ambient-g7">
+                    <img src="img/projects/3d gallery/Ambient & Room/g7/01.png" alt="Ambiente Serie 7" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Ambiente</span>
+                        <span class="item-count">3 fotos</span>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" data-category="product" data-group="product-g2">
+                    <img src="img/projects/3d gallery/Product & Objects/g2/1-1.png" alt="Producto Serie 2" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Producto</span>
+                        <span class="item-count">3 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="product" data-group="product-g3">
+                    <img src="img/projects/3d gallery/Product & Objects/g3/4.png" alt="Producto Serie 3" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Producto</span>
+                        <span class="item-count">2 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="product" data-group="product-g4">
+                    <img src="img/projects/3d gallery/Product & Objects/g4/Anillo A.A.png" alt="Anillo Serie 4" loading="lazy" style="object-fit: cover; object-position: 50% 35%; background-color: #f0f0f0;">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Producto</span>
+                        <span class="item-count">2 fotos</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="product" data-group="product-g5">
+                    <img src="img/projects/3d gallery/Product & Objects/g5/03 (1) (1).png" alt="Producto Serie 5" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="item-category">Producto</span>
+                        <span class="item-count">1 foto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="group-panel" id="groupPanel">
+        <div class="group-panel-header">
+            <div class="group-panel-meta">
+                <span class="group-panel-category" id="groupPanelCategory"></span>
+                <span class="group-panel-count" id="groupPanelCount"></span>
+            </div>
+            <button class="group-panel-close" id="groupPanelClose" aria-label="Cerrar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="group-moodboard-container">
+            <div class="group-moodboard" id="groupMoodboard"></div>
+        </div>
+        
+        <div class="group-detail" id="groupDetail">
+            <button class="detail-back" id="detailBack">← Volver al Panel</button>
+            <img class="detail-main" id="detailMain" src="" alt="">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Malale</h3>
+                    <p>Design Studio</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-en="Navigation" data-es="Navegación">Navegación</h4>
+                        <ul>
+                            <li><a href="index.html" data-en="Home" data-es="Inicio">Inicio</a></li>
+                            <li><a href="index.html#portfolio">Portfolio</a></li>
+                            <li><a href="gallery.html" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                            <li><a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                            <li><a href="index.html#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Follow Me" data-es="Sígueme">Sígueme</h4>
+                        <ul>
+                            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:hello@malale.com">Email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Language" data-es="Idioma">Idioma</h4>
+                        <div class="language-switcher footer-lang">
+                            <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                            <span class="lang-separator">/</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-en="&copy; 2026 Malale • María Alejandra Silva. All rights reserved."
+                   data-es="&copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.">
+                    &copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>

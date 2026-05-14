@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malale • María Alejandra Silva</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body data-mode="spaces" lang="es">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-text">Malale</span>
+                    <span class="logo-subtitle">Design Studio</span>
+                </a>
+            </div>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="#portfolio" class="nav-link" data-en="Portfolio" data-es="Portfolio">Portfolio</a></li>
+                    <li><a href="gallery.html" class="nav-link" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                    <li><a href="about.html" class="nav-link" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="nav-social">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@malale.com" class="social-link" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                        <span class="lang-separator">/</span>
+                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">María Alejandra Silva</div>
+                <h1 class="hero-title">
+                    <span class="title-static" data-en="Design of" data-es="Diseño de">Diseño de</span>
+                    <span class="title-dynamic">
+                        <span class="title-variant spaces-text" data-en="Spaces" data-es="Espacios">Espacios</span>
+                        <span class="title-variant objects-text" data-en="Objects" data-es="Objetos">Objetos</span>
+                    </span>
+                </h1>
+                <p class="hero-description">
+                    <span class="description-variant spaces-desc"
+                          data-en="Creating environments that evoke emotions and tell stories through the balance between functional and aesthetic."
+                          data-es="Creando ambientes que evocan emociones y cuentan historias a través del equilibrio entre lo funcional y lo estético.">
+                        Creando ambientes que evocan emociones y cuentan historias a través del equilibrio entre lo funcional y lo estético.
+                    </span>
+                    <span class="description-variant objects-desc"
+                          data-en="Designing pieces that bring value and warmth to the home, fusing Japanese elegance with Scandinavian warmth."
+                          data-es="Diseñando piezas que aportan valor y calidez al hogar, fusionando la elegancia japonesa con la calidez escandinava.">
+                        Diseñando piezas que aportan valor y calidez al hogar, fusionando la elegancia japonesa con la calidez escandinava.
+                    </span>
+                </p>
+
+                <!-- Mode Selector - Pill Buttons -->
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="spaces">
+                        <span class="mode-btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </span>
+                        <span class="mode-btn-text" data-en="Spaces" data-es="Espacios">Espacios</span>
+                    </button>
+                    <button class="mode-btn" data-mode="objects">
+                        <span class="mode-btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </span>
+                        <span class="mode-btn-text" data-en="Objects" data-es="Objetos">Objetos</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-placeholder spaces-visual">
+                    <div class="placeholder-content">
+                        <img src="img/projects/3d gallery/Ambient & Room/salita.png" alt="Diseño de Espacios" class="hero-image">
+                    </div>
+                </div>
+                <div class="visual-placeholder objects-visual">
+                    <div class="placeholder-content">
+                    <img src="img\projects\CandL\2.png" alt="Diseño de Espacios" class="hero-image">                            <span>Product Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Element -->
+        <div class="hero-decoration">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" fill="var(--bg-secondary)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="spaces-title" data-en="Environments & Spaces" data-es="Ambientes & Espacios">Ambientes & Espacios</span>
+                    <span class="objects-title" data-en="Products & Objects" data-es="Productos & Objetos">Productos & Objetos</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="spaces-subtitle"
+                          data-en="Selected projects that transform spaces into experiences"
+                          data-es="Proyectos seleccionados que transforman espacios en experiencias">
+                        Proyectos seleccionados que transforman espacios en experiencias
+                    </span>
+                    <span class="objects-subtitle"
+                          data-en="Designed pieces that bring character and functionality"
+                          data-es="Piezas diseñadas que aportan carácter y funcionalidad">
+                        Piezas diseñadas que aportan carácter y funcionalidad
+                    </span>
+                </p>
+            </div>
+
+            <!-- Spaces Projects Grid -->
+            <div class="projects-grid spaces-projects">
+
+
+
+
+
+                                <article class="project-card" data-project="space-1">
+                    <div class="project-image">
+                        <img src="img/projects/santalucia/portadita.jpg" alt="Propuesta Santa Lucía">
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title" data-en="Santa Lucía Proposal" data-es="Propuesta Santa Lucía">Propuesta Santa Lucía</h3>
+                        <p class="project-category" data-en="Interior Design" data-es="Diseño de Interiores">Diseño de Interiores</p>
+                    </div>
+                </article>
+                <article class="project-card" data-project="space-2">
+                    <div class="project-image">
+                        <img src="img/projects/habitaculo/image (9).png" alt="Refugio Austral">
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title" data-en="Refugio Austral" data-es="Refugio Austral">Refugio Austral</h3>
+                        <p class="project-category" data-en="Design Studio IV" data-es="Taller de Espacios IV">Taller de Espacios IV</p>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="space-3">
+                    <div class="project-image">
+                        <img src="img/projects/japandi/3.jpg" alt="Ma (間) – Espacio y Vacío">
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title" data-en="Ma (間) – Space and Void" data-es="Ma (間) – Espacio y Vacío">Ma (間) – Espacio y Vacío</h3>
+                        <p class="project-category" data-en="Personal 3D Exploration" data-es="Exploración Personal en 3D">Exploración Personal en 3D</p>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="space-4">
+                    <div class="project-image">
+                        <img src="img/projects/kitchen center/mini.png" alt="Corner 3D – Kitchen Center">
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title" data-en="Corner 3D – Kitchen Center Model" data-es="Corner 3D – Modelo para Kitchen Center">Corner 3D – Modelo para Kitchen Center</h3>
+                        <p class="project-category" data-en="3D Visualization" data-es="Visualización 3D">Visualización 3D</p>
+                    </div>
+                </article>
+
+
+            </div>
+
+            <!-- Objects Projects Grid -->
+            <div class="projects-grid objects-projects">
+                <article class="project-card" data-project="object-1">
+                    <div class="project-image">
+                         <img src="img/projects/CandL/2.png" alt="Portada – CandL">
+                        <div class="placeholder-box">
+                            <span>Objeto de Diseño 1</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">CAND-L</h3>
+                        <p class="project-category">Diseño de Producto</p>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="object-2">
+                    <div class="project-image">
+                         <img src="img/cadeira/cade.png" alt="Portada – Cadeira">
+                        <div class="placeholder-box">
+                            <span>Objeto de Diseño 2</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Cadeira</h3>
+                        <p class="project-category">Mueble Infantil</p>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="object-3">
+                    <div class="project-image">
+                          <img src="img/choco/portadachoco.png" alt="Portada – Chocolich">
+                        <div class="placeholder-box">
+                            <span>Objeto de Diseño 3</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Texturas Naturales</h3>
+                        <p class="project-category">Accesorios del Hogar</p>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project="object-4">
+                    <div class="project-image">
+                                                  <img src="img/projects/silla/silla.png" alt="Portada – Chocolich">
+                        <div class="placeholder-box">
+                            <span>Objeto de Diseño 4</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="view-project">Ver Proyecto</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Funcionalidad Estética</h3>
+                        <p class="project-category">Mobiliario</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title"
+                    data-en="Ready to transform your vision?"
+                    data-es="¿Listo para transformar tu visión?">
+                    ¿Listo para transformar tu visión?
+                </h2>
+                <p class="cta-description"
+                   data-en="Let's work together to create spaces and objects that reflect your essence"
+                   data-es="Trabajemos juntos para crear espacios y objetos que reflejen tu esencia">
+                    Trabajemos juntos para crear espacios y objetos que reflejen tu esencia
+                </p>
+                <a href="#contact" class="cta-button"
+                   data-en="Start Conversation"
+                   data-es="Iniciar Conversación">
+                    Iniciar Conversación
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title"
+                        data-en="Let's Talk"
+                        data-es="Conversemos">
+                        Conversemos
+                    </h2>
+                    <p class="contact-description"
+                       data-en="Every project begins with a conversation. Tell me about your vision and let's explore how I can help you make it a reality."
+                       data-es="Cada proyecto comienza con una conversación. Cuéntame sobre tu visión y exploremos cómo puedo ayudarte a hacerla realidad.">
+                        Cada proyecto comienza con una conversación. Cuéntame sobre tu visión
+                        y exploremos cómo puedo ayudarte a hacerla realidad.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>hello@malale.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Santiago, Chile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-en="Name" data-es="Nombre">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" data-en="Subject" data-es="Asunto">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-es="Mensaje">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span data-en="Send Message" data-es="Enviar Mensaje">Enviar Mensaje</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Malale</h3>
+                    <p>Design Studio</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-en="Navigation" data-es="Navegación">Navegación</h4>
+                        <ul>
+                            <li><a href="#home" data-en="Home" data-es="Inicio">Inicio</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="gallery.html" data-en="3D Gallery" data-es="Galería 3D">Galería 3D</a></li>
+                            <li><a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a></li>
+                            <li><a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Follow Me" data-es="Sígueme">Sígueme</h4>
+                        <ul>
+                            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:hello@malale.com">Email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-en="Language" data-es="Idioma">Idioma</h4>
+                        <div class="language-switcher footer-lang">
+                            <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+                            <span class="lang-separator">/</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-en="&copy; 2026 Malale • María Alejandra Silva. All rights reserved."
+                   data-es="&copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.">
+                    &copy; 2026 Malale • María Alejandra Silva. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Panel -->
+    <div class="project-overlay-panel" id="projectOverlay">
+        <div class="overlay-topbar">
+            <div class="overlay-drag-handle"></div>
+            <button class="overlay-close" id="closeOverlay" aria-label="Cerrar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <span class="overlay-close-label">Cerrar</span>
+            </button>
+        </div>
+        <div class="overlay-body">
+            <div class="overlay-left" id="overlayLeft">
+                <!-- Text content injected by JS -->
+            </div>
+            <div class="overlay-right" id="overlayRight">
+                <!-- Media content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
