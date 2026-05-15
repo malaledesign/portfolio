@@ -3,6 +3,9 @@
 // Main JavaScript - Dual Mode Portfolio
 // ===================================
 
+// Shared reference so initSmoothScroll can close the overlay
+let _closeOverlay = null;
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
@@ -248,6 +251,24 @@ function initProjectCards() {
             ]
         },
 
+        'space-5': {
+            title: 'SkapWood – Vitrina para Wolf',
+            titleEn: 'SkapWood – Display for Wolf',
+            category: 'Vitrina',
+            categoryEn: 'Display Design',
+            description: 'El proyecto consiste en el diseño de sistemas de exhibición conceptual para las vitrinas de tres locales comerciales. Bajo una lógica de "concurso de ideas", la propuesta busca capturar la identidad de marca mediante un recorrido fluido que atraiga al usuario. Su nombre combina conceptos de vitrina y madera, haciendo referencia directa a la materialidad y a la estética nórdica moderna característica de la tienda Wolf.',
+            descriptionEn: 'The project consists of the design of conceptual display systems for the windows of three commercial stores. Following a "competition of ideas" logic, the proposal seeks to capture the brand identity through a fluid journey that attracts the user. Its name combines concepts of display and wood, making direct reference to the materiality and modern Nordic aesthetic characteristic of the Wolf store.',
+            images: [
+                'img/projects/wolf/Wolf1.jpg',
+                'img/projects/wolf/Wolf2.jpg'
+            ],
+            details: [
+                { label: 'Cliente', labelEn: 'Client', value: 'Wolf', valueEn: 'Wolf' },
+                { label: 'Año', labelEn: 'Year', value: '2023', valueEn: '2023' },
+                { label: 'Tipo', labelEn: 'Type', value: 'Vitrina', valueEn: 'Display Design' }
+            ]
+        },
+
         'object-1': {
             title: 'CAND-L',
             category: 'Diseño de Producto',
@@ -365,12 +386,12 @@ function initProjectCards() {
         const category = (isEn && project.categoryEn)    ? project.categoryEn    : project.category;
         const description = (isEn && project.descriptionEn) ? project.descriptionEn : project.description;
 
-        // ── Adjust panel height to actual navbar (fixes button hidden under nav) ──
+        // ── Adjust panel height to actual navbar (desktop only; mobile uses top:0/auto via CSS) ──
         const navbar = document.querySelector('.navbar');
         const navH = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 80;
         overlay.style.height = window.innerWidth > 768
             ? `calc(100vh - ${navH}px)`
-            : '100vh';
+            : '';
 
         // ── Left column: project text ──
         let leftHTML = `
@@ -394,10 +415,14 @@ function initProjectCards() {
         }
         overlayLeft.innerHTML = leftHTML;
 
-        // ── Right column: image carousel ──
+        // ── Right column: carousel on desktop, vertical gallery on mobile ──
         overlayRight.innerHTML = '';
         if (project.images && project.images.length > 0) {
-            buildCarousel(project.images, title, overlayRight);
+            if (window.innerWidth <= 768) {
+                buildMobileGallery(project.images, title, overlayRight);
+            } else {
+                buildCarousel(project.images, title, overlayRight);
+            }
         }
 
         // ── Open panel (slide from bottom) ──
@@ -469,6 +494,15 @@ function initProjectCards() {
         container._carouselGoTo = (dir) => goTo(current + dir);
     }
 
+    function buildMobileGallery(images, title, container) {
+        container.innerHTML = `
+            <div class="mobile-gallery">
+                ${images.map((src, i) =>
+                    `<img class="mobile-gallery-img" src="${src}" alt="${title} ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">`
+                ).join('')}
+            </div>`;
+    }
+
     function closeProjectOverlay() {
         gsap.to(overlay, {
             y: '100%',
@@ -482,6 +516,9 @@ function initProjectCards() {
             }
         });
     }
+
+    // Expose so navbar smooth-scroll can close the overlay
+    _closeOverlay = closeProjectOverlay;
 }
 
 // ===================================
@@ -632,23 +669,32 @@ function initSmoothScroll() {
             }
 
             e.preventDefault();
+
+            // Always close mobile menu first
+            const navRight = document.querySelector('.nav-right');
+            const navToggle = document.getElementById('navToggle');
+            if (navRight && navRight.classList.contains('active')) {
+                navRight.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // If project overlay is open, close it then scroll
+            const overlay = document.getElementById('projectOverlay');
+            if (overlay && overlay.classList.contains('active') && _closeOverlay) {
+                _closeOverlay();
+                setTimeout(() => {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                }, 600);
+                return;
+            }
+
             const target = document.querySelector(href);
-
             if (target) {
-                // Close mobile menu if open
-                const navRight = document.querySelector('.nav-right');
-                const navToggle = document.getElementById('navToggle');
-                if (navRight && navRight.classList.contains('active')) {
-                    navRight.classList.remove('active');
-                    navToggle.classList.remove('active');
-                }
-
-                // Smooth scroll to target
-                const targetPosition = target.offsetTop - 80;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             }
         });
     });

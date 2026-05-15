@@ -1007,6 +1007,12 @@ body[data-mode="objects"] .objects-projects {
     transition: transform 0.4s ease;
 }
 
+.project-card--centered {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 1.5rem);
+    justify-self: center;
+}
+
 .project-card:hover {
     transform: translateY(-10px);
 }
@@ -2102,7 +2108,8 @@ body[data-mode="objects"] .objects-projects {
 
     /* === PROJECT OVERLAY — mobile full-screen === */
     .project-overlay-panel {
-        height: 100vh;
+        top: 0;
+        height: auto;
         z-index: 2000;
     }
 
@@ -2122,9 +2129,10 @@ body[data-mode="objects"] .objects-projects {
     }
 
     .overlay-right {
-        overflow: hidden;
+        display: block;
+        overflow: visible;
         flex: none;
-        height: 55vh;
+        height: auto;
         flex-shrink: 0;
     }
 
@@ -2138,6 +2146,20 @@ body[data-mode="objects"] .objects-projects {
 
     .carousel-thumbs {
         height: 64px;
+    }
+
+    .mobile-gallery {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .mobile-gallery-img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        display: block;
     }
 }
 
