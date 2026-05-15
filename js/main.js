@@ -590,66 +590,58 @@ function initScrollAnimations() {
 // ===================================
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
-        // Show success message (in a real app, you'd send this to a server)
-        console.log('Form submitted:', data);
-
-        // Animate submit button
         const submitBtn = form.querySelector('.submit-button');
-        const originalText = submitBtn.querySelector('span').textContent;
+        const btnSpan = submitBtn.querySelector('span');
+        const originalText = btnSpan.textContent;
 
-        submitBtn.querySelector('span').textContent = 'Enviando...';
+        btnSpan.textContent = 'Enviando...';
         submitBtn.disabled = true;
 
-        // Simulate sending
-        setTimeout(() => {
-            submitBtn.querySelector('span').textContent = '¡Mensaje Enviado!';
-
-            // Reset form
-            setTimeout(() => {
-                form.reset();
-                submitBtn.querySelector('span').textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        }, 1500);
-
-        // Add success animation
         gsap.fromTo(form,
             { scale: 1 },
-            {
-                scale: 1.02,
-                duration: 0.2,
-                yoyo: true,
-                repeat: 1,
-                ease: 'power2.inOut'
-            }
+            { scale: 1.02, duration: 0.2, yoyo: true, repeat: 1, ease: 'power2.inOut' }
         );
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://formsubmit.co/ajax/malaleedsgn@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                btnSpan.textContent = '¡Mensaje Enviado!';
+                setTimeout(() => {
+                    form.reset();
+                    btnSpan.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            } else {
+                throw new Error('response not ok');
+            }
+        } catch {
+            btnSpan.textContent = 'Error al enviar. Inténtalo de nuevo.';
+            setTimeout(() => {
+                btnSpan.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        }
     });
 
     // Input focus animations
     const inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('focus', () => {
-            gsap.to(input, {
-                scale: 1.01,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
+            gsap.to(input, { scale: 1.01, duration: 0.3, ease: 'power2.out' });
         });
-
         input.addEventListener('blur', () => {
-            gsap.to(input, {
-                scale: 1,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
+            gsap.to(input, { scale: 1, duration: 0.3, ease: 'power2.out' });
         });
     });
 }
