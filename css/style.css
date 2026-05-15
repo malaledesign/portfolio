@@ -2108,9 +2108,13 @@ body[data-mode="objects"] .objects-projects {
 
     /* === PROJECT OVERLAY — mobile full-screen === */
     .project-overlay-panel {
-        top: 0;
-        height: auto;
         z-index: 2000;
+    }
+
+    .project-card--centered {
+        grid-column: auto;
+        max-width: none;
+        justify-self: auto;
     }
 
     .overlay-body {

@@ -386,12 +386,11 @@ function initProjectCards() {
         const category = (isEn && project.categoryEn)    ? project.categoryEn    : project.category;
         const description = (isEn && project.descriptionEn) ? project.descriptionEn : project.description;
 
-        // ── Adjust panel height to actual navbar (desktop only; mobile uses top:0/auto via CSS) ──
+        // ── Panel starts just below navbar on both desktop and mobile ──
+        // window.innerHeight = actual visible height (respects browser chrome bars on mobile)
         const navbar = document.querySelector('.navbar');
         const navH = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 80;
-        overlay.style.height = window.innerWidth > 768
-            ? `calc(100vh - ${navH}px)`
-            : '';
+        overlay.style.height = `${window.innerHeight - navH}px`;
 
         // ── Left column: project text ──
         let leftHTML = `
