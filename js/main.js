@@ -609,13 +609,15 @@ function initContactForm() {
 
         try {
             const formData = new FormData(form);
-            const response = await fetch('https://formsubmit.co/ajax/malaleedsgn@gmail.com', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success) {
                 btnSpan.textContent = '¡Mensaje Enviado!';
                 setTimeout(() => {
                     form.reset();
@@ -623,7 +625,7 @@ function initContactForm() {
                     submitBtn.disabled = false;
                 }, 2000);
             } else {
-                throw new Error('response not ok');
+                throw new Error(result.message || 'Error al enviar');
             }
         } catch {
             btnSpan.textContent = 'Error al enviar. Inténtalo de nuevo.';
