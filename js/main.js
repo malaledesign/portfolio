@@ -217,8 +217,8 @@ function initProjectCards() {
             ]
         },
         'space-3': {
-            title: 'Ma (間) – Espacio y Vacío',
-            titleEn: 'Ma (間) – Space and Void',
+            title: 'Nörd',
+            titleEn: 'Nörd',
             category: 'Exploración Personal en 3D',
             categoryEn: 'Personal 3D Exploration',
             description: 'Este proyecto explora el concepto japonés Ma, entendido como el espacio intencionado entre los elementos y la importancia del vacío como parte activa del diseño. A través de una habitación moderna estilo japandi, busqué transmitir equilibrio, calma y armonía mediante el uso de luz natural, materiales nobles y una composición minimalista. El modelado y la visualización fueron desarrollados en Blender, herramienta que he aprendido de manera autodidacta por interés personal en el diseño tridimensional.',
@@ -280,13 +280,13 @@ function initProjectCards() {
             details: [
                 { label: 'Tipo', value: 'Colección de Productos' },
                 { label: 'Año', value: '2022' },
-                { label: 'Materiales', value: 'Cerámica, Madera, Textiles' }
+                { label: 'Materiales', value: 'Acrílico, Madera' }
             ]
         },
         'object-2': {
             title: 'Cadeira',
             category: 'Mobiliario Infantil',
-            description: 'Inspirados en las formas encontradas en la naturaleza, estos objetos decorativos combinan la precisión japonesa con la calidez escandinava. Cada curva, cada línea, ha sido considerada para crear piezas que invitan al tacto y añaden una dimensión escultural a cualquier espacio.',
+            description: 'Es una mecedora funcional desarrollada en el marco del Taller de Objetos III, diseñado bajo la influencia estética y metodológica de los Hermanos Campana. El proyecto se centra en el desarrollo de la motricidad infantil, proponiendo una experiencia de inestabilidad controlada que desafía al menor a establecer una relación consciente entre su cuerpo y el objeto en el espacio.\n\nEn cuanto a su resolución técnica, la pieza destaca por una composición material que equilibra un 60% de fieltro de lana natural (dada por la empresa Meier & Meier) con elementos industriales. La estructura, que integra tubos de polietileno espumado, listones de pino cepillado y terciado de 3mm, demuestra una exploración exhaustiva entre procesos de baja y alta tecnología, logrando una geometría orgánica que combina calidez táctil con rigor constructivo.',
             images: [
                 'img/cadeira/cade0.jpg',
               'img/cadeira/cade1.jpg',
@@ -295,13 +295,13 @@ function initProjectCards() {
             details: [
                 { label: 'Tipo', value: 'Objetos Decorativos' },
                 { label: 'Año', value: '2023' },
-                { label: 'Materiales', value: 'Arcilla, Bambú, Piedra' }
+                { label: 'Materiales', value: 'Fieltro de lana, Madera, Polietileno' }
             ]
         },
         'object-3': {
             title: 'Chocolich',
             category: 'Producto',
-            description: 'Una serie de accesorios que celebran la belleza de los materiales en su estado más puro. Tejidos a mano, torneados o moldeados con técnicas tradicionales, estos objetos llevan consigo la historia de su creación y la autenticidad de lo hecho a mano.',
+            description: 'Inspirado en la cocina disruptiva de Gaggan Anand, este proyecto realizado para el taller de objetos III, explora el diseño gastronómico mediante la creación de un chocolate conceptual basado en el lychee. La propuesta se centra en la síntesis sensorial, fusionando el perfil floral del fruto con una morfología experimental que busca generar una experiencia inesperada. Chocolich representa un ejercicio de innovación donde la identidad verbal y visual convergen para elevar un producto de consumo a una pieza de diseño multisensorial.',
             images: [
                        'img/choco/choco1.jpg',
               'img/choco/choco2.jpg'
@@ -309,7 +309,7 @@ function initProjectCards() {
             details: [
                 { label: 'Tipo', value: 'Accesorios' },
                 { label: 'Año', value: '2024' },
-                { label: 'Materiales', value: 'Lino, Roble, Algodón' }
+                { label: 'Materiales', value: 'Chocolate blanco, Chocolate de cacao, Molde de silicona, PLA' }
             ]
         },
         'object-4': {
@@ -325,7 +325,7 @@ function initProjectCards() {
             details: [
                 { label: 'Tipo', value: 'Mobiliario' },
                 { label: 'Año', value: '2023' },
-                { label: 'Materiales', value: 'Nogal, Acero, Cuero' }
+                { label: 'Materiales', value: 'MDF, Espárragos, Golillas, Protector de madera, Cola fría' }
             ]
         }
     };
@@ -397,7 +397,7 @@ function initProjectCards() {
             <div class="overlay-header">
                 <div class="overlay-category">${category}</div>
                 <h2 class="overlay-title">${title}</h2>
-                <p class="overlay-description">${description}</p>
+                <p class="overlay-description">${description.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
             </div>`;
 
         if (project.details && project.details.length > 0) {
