@@ -221,8 +221,8 @@ function initProjectCards() {
             titleEn: 'Nörd',
             category: 'Exploración Personal en 3D',
             categoryEn: 'Personal 3D Exploration',
-            description: 'Este proyecto explora el concepto japonés Ma, entendido como el espacio intencionado entre los elementos y la importancia del vacío como parte activa del diseño. A través de una habitación moderna estilo japandi, busqué transmitir equilibrio, calma y armonía mediante el uso de luz natural, materiales nobles y una composición minimalista. El modelado y la visualización fueron desarrollados en Blender, herramienta que he aprendido de manera autodidacta por interés personal en el diseño tridimensional.',
-            descriptionEn: 'This project explores the Japanese concept of Ma, understood as the intentional space between elements and the importance of void as an active part of design. Through a modern japandi-style room, I sought to convey balance, calm, and harmony through the use of natural light, noble materials, and a minimalist composition. The modeling and visualization were developed in Blender, a tool I have learned self-taught out of personal interest in three-dimensional design.',
+            description: 'Nörd nace de la unión entre el minimalismo escandinavo y el diseño oriental, dando vida a una habitación de estilo Japandi. El proyecto busca transmitir un equilibrio absoluto, calma y armonía a través de una composición limpia, el protagonismo de la luz natural y el uso honesto de materiales nobles. Todo el proceso de modelado y visualización tridimensional fue desarrollado de forma autodidacta en Blender.',
+            descriptionEn: 'Nörd is born from the union of Scandinavian minimalism and Oriental design, bringing to life a Japandi-style room. The project seeks to convey absolute balance, calm and harmony through a clean composition, the prominence of natural light, and the honest use of noble materials. The entire three-dimensional modeling and visualization process was developed self-taught in Blender.',
             images: [
                 'img/projects/japandi/1.jpg',
                 'img/projects/japandi/2.jpg',
@@ -256,11 +256,13 @@ function initProjectCards() {
             titleEn: 'SkapWood – Display for Wolf',
             category: 'Vitrina',
             categoryEn: 'Display Design',
-            description: 'El proyecto consiste en el diseño de sistemas de exhibición conceptual para las vitrinas de tres locales comerciales. Bajo una lógica de "concurso de ideas", la propuesta busca capturar la identidad de marca mediante un recorrido fluido que atraiga al usuario. Su nombre combina conceptos de vitrina y madera, haciendo referencia directa a la materialidad y a la estética nórdica moderna característica de la tienda Wolf.',
-            descriptionEn: 'The project consists of the design of conceptual display systems for the windows of three commercial stores. Following a "competition of ideas" logic, the proposal seeks to capture the brand identity through a fluid journey that attracts the user. Its name combines concepts of display and wood, making direct reference to the materiality and modern Nordic aesthetic characteristic of the Wolf store.',
+            description: 'El proyecto consiste en el diseño de sistemas de exhibición conceptual para una de las vitrinas de la marca Wolf. Se realizó una colaboración con la marca en el Taller de espacios IV. La propuesta busca capturar la identidad de marca mediante un recorrido fluido que atraiga al usuario. Su nombre combina conceptos de vitrina y madera, haciendo referencia directa a la materialidad y a la estética nórdica moderna característica de la tienda Wolf.',
+            descriptionEn: 'The project consists of the design of conceptual display systems for one of Wolf\'s brand windows. A collaboration with the brand was carried out within Design Studio IV. The proposal seeks to capture the brand identity through a fluid journey that attracts the user. Its name combines concepts of display and wood, making direct reference to the materiality and modern Nordic aesthetic characteristic of the Wolf store.',
             images: [
                 'img/projects/wolf/Wolf1.jpg',
-                'img/projects/wolf/Wolf2.jpg'
+                'img/projects/wolf/Wolf2.jpg',
+                'img/projects/wolf/boceto1.png',
+                'img/projects/wolf/boceto2.png'
             ],
             details: [
                 { label: 'Cliente', labelEn: 'Client', value: 'Wolf', valueEn: 'Wolf' },
@@ -274,8 +276,11 @@ function initProjectCards() {
             category: 'Diseño de Producto',
             description: 'El proyecto explora la iluminación como un acto ritual y funcional. Inspirada en la figura del cirio, la lámpara integra un sistema de regulación manual donde el desplazamiento del acrílico permite ajustar la intensidad lumínica. El diseño prioriza la honestidad de los materiales y la interacción directa del usuario con el objeto para transformar la atmósfera del entorno.',
             images: [
-            'img/projects/CandL/candl1.jpg',
-              'img/projects/CandL/candl2.jpg'
+                'img/projects/CandL/new2.png',
+                'img/projects/CandL/3.png',   
+                'img/projects/CandL/4.png',
+                'img/projects/CandL/5.png'
+
             ],
             details: [
                 { label: 'Tipo', value: 'Colección de Productos' },
@@ -289,8 +294,8 @@ function initProjectCards() {
             description: 'Es una mecedora funcional desarrollada en el marco del Taller de Objetos III, diseñado bajo la influencia estética y metodológica de los Hermanos Campana. El proyecto se centra en el desarrollo de la motricidad infantil, proponiendo una experiencia de inestabilidad controlada que desafía al menor a establecer una relación consciente entre su cuerpo y el objeto en el espacio.\n\nEn cuanto a su resolución técnica, la pieza destaca por una composición material que equilibra un 60% de fieltro de lana natural (dada por la empresa Meier & Meier) con elementos industriales. La estructura, que integra tubos de polietileno espumado, listones de pino cepillado y terciado de 3mm, demuestra una exploración exhaustiva entre procesos de baja y alta tecnología, logrando una geometría orgánica que combina calidez táctil con rigor constructivo.',
             images: [
                 'img/cadeira/cade0.jpg',
-              'img/cadeira/cade1.jpg',
-                  'img/cadeira/planocade.jpg'
+                'img/cadeira/cade1.jpg',
+                'img/cadeira/planocade.jpg'
             ],
             details: [
                 { label: 'Tipo', value: 'Objetos Decorativos' },
