@@ -171,6 +171,48 @@ function initProjectCards() {
     // Project data
     const projectData = {
 
+        'space-marbella': {
+            title: 'Marbella',
+            titleEn: 'Marbella',
+            category: 'Diseño decorativo y compras',
+            categoryEn: 'Decorative Design & Buyer',
+            description: 'Como asesora de diseño y compras en colaboración con Concepto Deco, participé en el proyecto Marbella. Analicé una selección de tiendas en Las Condes, Vitacura y Lo Barnechea; allí seleccioné piezas decorativas y artículos para el hogar, integrándolos cuidadosamente al diseño para crear una experiencia visual y doméstica armónica. Realicé todas las compras presencialmente durante septiembre de 2026.',
+            descriptionEn: 'As a design and buyer advisor working with Concepto Deco, I contributed to the Marbella project. I reviewed selected stores across Las Condes, Vitacura and Lo Barnechea, choosing decorative pieces and home accessories and thoughtfully integrating them into the design to create a cohesive visual and living experience. I made all purchases in person throughout September 2026.',
+            images: [
+                'img/projects/marbella/comedor.jpg',
+                'img/projects/marbella/camarote.jpg',
+                'img/projects/marbella/camarote2.jpg',
+                'img/projects/marbella/sitialesycuadro.jpg',
+                'img/projects/marbella/terraza.jpg'
+            ],
+            details: [
+                { label: 'Empresa', labelEn: 'Company', value: 'Concepto Deco', valueEn: 'Concepto Deco' },
+                { label: 'Rol', labelEn: 'Role', value: 'Asesora de diseño y compradora', valueEn: 'Design advisor and buyer' },
+                { label: 'Tiendas', labelEn: 'Stores', value: 'Las Condes, Vitacura y Lo Barnechea', valueEn: 'Las Condes, Vitacura and Lo Barnechea' },
+                { label: 'Proceso', labelEn: 'Process', value: 'Análisis de tiendas y compras presenciales', valueEn: 'Store research and in-person purchasing' },
+                { label: 'Periodo', labelEn: 'Period', value: 'Septiembre 2026', valueEn: 'September 2026' }
+            ]
+        },
+        'space-las-brisas': {
+            title: 'Las Brisas',
+            titleEn: 'Las Brisas',
+            category: 'Diseño espacial y propuesta decorativa',
+            categoryEn: 'Spatial Design & Decorative Proposal',
+            description: 'Como asesora de diseño en colaboración con Concepto Deco, desarrollé una propuesta espacial y decorativa integral para un proyecto en Las Brisas. El trabajo incluyó un levantamiento detallado de la vivienda y la elaboración de planimetrías para mapear sus espacios, además de una propuesta de distribución y ambientación que articula circulación, uso y selección decorativa. Abordé la vivienda como un conjunto, con atención al detalle y a la relación entre cada ambiente.',
+            descriptionEn: 'As a design advisor working with Concepto Deco, I developed a comprehensive spatial and decorative proposal for a project in Las Brisas. The work included a detailed survey of the residence and floor plans mapping its spaces, alongside a layout and styling proposal addressing circulation, function and decorative choices. I approached the residence as a whole, with close attention to detail and to the relationship between each space.',
+            layout: 'plan-overview',
+            featuredImage: 'img/projects/las brisas/58.png',
+            images: Array.from({ length: 58 }, (_, index) => index + 1)
+                .filter(pageNumber => pageNumber !== 16)
+                .map(pageNumber => `img/projects/las brisas/${pageNumber}.png`),
+            details: [
+                { label: 'Empresa', labelEn: 'Company', value: 'Concepto Deco', valueEn: 'Concepto Deco' },
+                { label: 'Rol', labelEn: 'Role', value: 'Asesora de diseño', valueEn: 'Design advisor' },
+                { label: 'Alcance', labelEn: 'Scope', value: 'Planimetrías y propuesta decorativa integral', valueEn: 'Floor plans and comprehensive decorative proposal' },
+                { label: 'Periodo', labelEn: 'Period', value: 'Septiembre 2026', valueEn: 'September 2026' }
+            ]
+        },
+
         'space-1': {
             title: 'Propuesta Santa Lucía',
             titleEn: 'Santa Lucía Proposal',
@@ -375,16 +417,21 @@ function initProjectCards() {
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (!overlay.classList.contains('active')) return;
+        const goTo = overlayRight._carouselGoTo || overlayRight._planGoTo;
         if (e.key === 'Escape') {
-            closeProjectOverlay();
-        } else if (e.key === 'ArrowLeft' && overlayRight._carouselGoTo) {
-            overlayRight._carouselGoTo(-1);
-        } else if (e.key === 'ArrowRight' && overlayRight._carouselGoTo) {
-            overlayRight._carouselGoTo(1);
+            if (!overlayRight._closePlanLightbox?.()) closeProjectOverlay();
+        } else if (e.key === 'ArrowLeft' && goTo) {
+            goTo(-1);
+        } else if (e.key === 'ArrowRight' && goTo) {
+            goTo(1);
         }
     });
 
     function openProjectOverlay(project) {
+        delete overlayRight._carouselGoTo;
+        delete overlayRight._planGoTo;
+        delete overlayRight._closePlanLightbox;
+
         const lang = document.body.getAttribute('lang') || 'es';
         const isEn = lang === 'en';
         const title    = (isEn && project.titleEn)       ? project.titleEn       : project.title;
@@ -419,9 +466,11 @@ function initProjectCards() {
         }
         overlayLeft.innerHTML = leftHTML;
 
-        // ── Right column: carousel on desktop, vertical gallery on mobile ──
+        // ── Right column: project overview or image gallery ──
         overlayRight.innerHTML = '';
-        if (project.images && project.images.length > 0) {
+        if (project.layout === 'plan-overview' && project.images && project.images.length > 0) {
+            buildPlanOverview(project.images, project.featuredImage, title, overlayRight);
+        } else if (project.images && project.images.length > 0) {
             if (window.innerWidth <= 768) {
                 buildMobileGallery(project.images, title, overlayRight);
             } else {
@@ -496,6 +545,117 @@ function initProjectCards() {
 
         // Expose goTo for keyboard nav
         container._carouselGoTo = (dir) => goTo(current + dir);
+    }
+
+    function buildPlanOverview(images, featuredImage, title, container) {
+        const lang = document.body.getAttribute('lang') || 'es';
+        const isEn = lang === 'en';
+        const sheetLabel = isEn ? 'Sheet' : 'Lámina';
+        const imageNumber = src => Number(src.match(/\/(\d+)\.png$/)?.[1] || 0);
+        let current = Math.max(0, images.indexOf(featuredImage));
+
+        container.innerHTML = `
+            <div class="plan-overview">
+                <div class="plan-overview-lead">
+                    <button class="plan-feature-image" type="button" aria-label="${isEn ? 'Open featured plan at full size' : 'Ampliar plan destacado'}">
+                        <img src="${images[current]}" alt="${title} — ${sheetLabel} ${imageNumber(images[current])}">
+                        <span class="plan-feature-expand" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                                <line x1="16" y1="16" x2="21" y2="21"></line>
+                                <line x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line>
+                                <line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="plan-overview-copy">
+                        <span class="plan-overview-kicker">${isEn ? 'Spatial design · Las Brisas' : 'Diseño espacial · Las Brisas'}</span>
+                        <h3>${isEn ? 'A project mapped in detail' : 'Un proyecto trazado en detalle'}</h3>
+                        <p>${isEn ? 'Spatial planning, circulation and a decorative proposal developed as one cohesive project.' : 'Planimetría, circulación y propuesta decorativa desarrolladas como un proyecto integral.'}</p>
+                        <span class="plan-feature-counter"><span data-plan-current>${imageNumber(images[current])}</span><span> / 58</span></span>
+                    </div>
+                </div>
+                <div class="plan-overview-heading">
+                    <h4>${isEn ? 'Project drawings' : 'Planimetrías del proyecto'}</h4>
+                    <span>${images.length} ${isEn ? 'sheets' : 'láminas'}</span>
+                </div>
+                <div class="plan-overview-grid">
+                    ${images.map((src, index) => `
+                        <button class="plan-sheet${index === current ? ' active' : ''}" type="button" data-index="${index}" aria-label="${sheetLabel} ${imageNumber(src)}">
+                            <img src="${src}" alt="" loading="lazy">
+                            <span>${String(imageNumber(src)).padStart(2, '0')}</span>
+                        </button>`).join('')}
+                </div>
+            </div>
+            <div class="plan-lightbox" aria-hidden="true">
+                <div class="plan-lightbox-toolbar">
+                    <span class="plan-lightbox-counter"></span>
+                    <button class="plan-lightbox-close" type="button" aria-label="${isEn ? 'Close image' : 'Cerrar imagen'}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button class="plan-lightbox-nav prev" type="button" aria-label="${isEn ? 'Previous sheet' : 'Lámina anterior'}">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <img class="plan-lightbox-image" src="" alt="">
+                <button class="plan-lightbox-nav next" type="button" aria-label="${isEn ? 'Next sheet' : 'Lámina siguiente'}">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>`;
+
+        const featureButton = container.querySelector('.plan-feature-image');
+        const featureImage = featureButton.querySelector('img');
+        const currentLabel = container.querySelector('[data-plan-current]');
+        const sheetButtons = Array.from(container.querySelectorAll('.plan-sheet'));
+        const lightbox = container.querySelector('.plan-lightbox');
+        const lightboxImage = container.querySelector('.plan-lightbox-image');
+        const lightboxCounter = container.querySelector('.plan-lightbox-counter');
+
+        function updateSheet(index) {
+            current = (index + images.length) % images.length;
+            const number = imageNumber(images[current]);
+            featureImage.src = images[current];
+            featureImage.alt = `${title} — ${sheetLabel} ${number}`;
+            currentLabel.textContent = String(number).padStart(2, '0');
+            sheetButtons.forEach((button, buttonIndex) => {
+                button.classList.toggle('active', buttonIndex === current);
+            });
+            if (lightbox.classList.contains('active')) {
+                lightboxImage.src = images[current];
+                lightboxImage.alt = `${title} — ${sheetLabel} ${number}`;
+                lightboxCounter.textContent = `${sheetLabel} ${number} / 58`;
+            }
+        }
+
+        function openLightbox() {
+            updateSheet(current);
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            featureButton.focus();
+        }
+
+        featureButton.addEventListener('click', openLightbox);
+        sheetButtons.forEach(button => button.addEventListener('click', () => updateSheet(Number(button.dataset.index))));
+        container.querySelector('.plan-lightbox-close').addEventListener('click', closeLightbox);
+        container.querySelector('.plan-lightbox-nav.prev').addEventListener('click', () => updateSheet(current - 1));
+        container.querySelector('.plan-lightbox-nav.next').addEventListener('click', () => updateSheet(current + 1));
+        lightbox.addEventListener('click', event => {
+            if (event.target === lightbox) closeLightbox();
+        });
+        container._planGoTo = direction => updateSheet(current + direction);
+        container._closePlanLightbox = () => {
+            if (!lightbox.classList.contains('active')) return false;
+            closeLightbox();
+            return true;
+        };
     }
 
     function buildMobileGallery(images, title, container) {
