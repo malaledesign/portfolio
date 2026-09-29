@@ -387,23 +387,6 @@ function initProjectCards() {
                 openProjectOverlay(project);
             }
         });
-
-        // Add hover animation
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-                y: -10,
-                duration: 0.4,
-                ease: 'power2.out'
-            });
-        });
-
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                y: 0,
-                duration: 0.4,
-                ease: 'power2.out'
-            });
-        });
     });
 
     // Close overlay

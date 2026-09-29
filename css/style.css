@@ -1004,17 +1004,12 @@ body[data-mode="objects"] .objects-projects {
 
 .project-card {
     cursor: pointer;
-    transition: transform 0.4s ease;
 }
 
 .project-card--centered {
     grid-column: 1 / -1;
     max-width: calc(50% - 1.5rem);
     justify-self: center;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
 }
 
 .project-image {
